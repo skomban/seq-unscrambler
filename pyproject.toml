@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "seq-unscrambler"
+version = "1.0.0"
+description = "Unscramble shuffled words in a sequence"
+authors = ["Stanley Jose Komban<stanley.kj@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.7.0"
+pandas = "1.1.5"
+pyyaml = "^5.4.1"
+jupyter = "^1.0.0"
+tqdm = "4.41.1"
+torch = "^1.9.0"
+transformers = "^4.8.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.4.2"
+pytest-cov = "^2.8.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
