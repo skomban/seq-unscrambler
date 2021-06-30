@@ -2,6 +2,8 @@ import itertools
 import os
 from collections import defaultdict
 
+from nltk import tokenize
+
 RESOURCE_DIR = os.path.abspath(os.path.join(__file__, os.pardir, os.pardir, 'resources'))
 
 
@@ -72,7 +74,7 @@ def get_permutations(sentence: str, chars_to_words_map: defaultdict) -> list:
     """
 
     token_perm = []
-    for token in sentence.split():
+    for token in tokenize.word_tokenize(sentence):
         if len(token) > 1:
             token_perm.append(get_words_from_chars(token, chars_to_words_map))
         else:

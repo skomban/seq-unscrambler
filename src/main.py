@@ -45,6 +45,7 @@ class SeqUnscrambler:
 
                 token_score = mask_token_prob[:, current_token_id].detach().numpy()[0]
 
+                # calculate log-likelihood (pseudo)
                 log_prob += np.log(token_score)
 
             log_prob_sent[' '.join(list(sentence_perm[i]))] = log_prob
@@ -54,6 +55,6 @@ class SeqUnscrambler:
 
 if __name__ == '__main__':
     unscrambler = SeqUnscrambler()
-    result = unscrambler.analyze(text="fi yuo cna raed tihs , yuo hvae a sgtrane mnid too", top_k=3)
+    result = unscrambler.analyze(text="fi yuo cna raed tihs, yuo hvae a sgtrane mnid too", top_k=3)
     for sentence in result:
         print(f"sentence: {sentence[0]}\nscore: {sentence[1]}\n")
