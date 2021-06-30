@@ -1,5 +1,6 @@
 import itertools
 import os
+import random
 from collections import defaultdict
 
 from nltk import tokenize
@@ -81,3 +82,25 @@ def get_permutations(sentence: str, chars_to_words_map: defaultdict) -> list:
             token_perm.append([token])
 
     return list(itertools.product(*token_perm))
+
+
+def scramble_words(sentence):
+    """Shuffle characters in a word sequence
+
+    Args:
+        sentence: str
+
+    Returns:
+         scrambled_tokens: list
+    """
+
+    tokens = tokenize.word_tokenize(sentence)
+    scrambled_tokens = []
+    for token in tokens:
+        if len(token) > 1:
+            chars = list(token)
+            random.shuffle(chars)
+            token = ''.join(chars)
+        scrambled_tokens.append(token)
+
+    return ' '.join(scrambled_tokens)

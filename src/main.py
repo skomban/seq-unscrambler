@@ -2,7 +2,7 @@ import numpy as np
 import torch
 from transformers import AutoModelForMaskedLM, RobertaTokenizer
 
-from src.utils import get_vocab, create_chars_to_words_map, get_permutations
+from src.utils import get_vocab, create_chars_to_words_map, get_permutations, scramble_words
 
 # Constants
 MODEL_NAME = "distilroberta-base"
@@ -55,6 +55,14 @@ class SeqUnscrambler:
 
 if __name__ == '__main__':
     unscrambler = SeqUnscrambler()
-    result = unscrambler.analyze(text="fi yuo cna raed tihs, yuo hvae a sgtrane mnid too", top_k=3)
+    input_text = "if you can read this, you have a strange mind too"
+    print(f"Input text: {input_text}")
+
+    scrambled_text = scramble_words(input_text)
+    print(f"Scrambled text: {scrambled_text}")
+
+    result = unscrambler.analyze(text=scrambled_text, top_k=3)
+    print(f"Inferred input text: {result[0][0]}")
+    print()
     for sentence in result:
         print(f"sentence: {sentence[0]}\nscore: {sentence[1]}\n")
