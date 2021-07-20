@@ -1,6 +1,6 @@
 # seq-unscrambler
-Recently I came across a post that was a screenshot of a piece of text in which each word had been partially scrambled. The text was as follows "fi yuo cna raed tihs, yuo hvae a sgtrane mnid too. I cdnuolt blveiee taht I cluod aulaclty uesdnatnrd waht I was rdanieg. The phaonmneal pweor of the hmuan mind!". I could unscramble the words in my head without much effort. But this got me thinking, if humans can perform this task then can computers do the same? 
-I used a masked language model (Roberta) to reveal the original sentence after the letters in it's words were scrambled.
+Recently I came across a post that was a screenshot of a piece of text in which each word had been partially scrambled. The text was as follows *"fi yuo cna raed tihs, yuo hvae a sgtrane mnid too. I cdnuolt blveiee taht I cluod aulaclty uesdnatnrd waht I was rdanieg. The phaonmneal pweor of the hmuan mind!"*. I could unscramble the words in my head without much effort. But this got me thinking, if humans can perform this task then can computers do the same? 
+I used a masked language model to reveal the original text after the letters in it's words are scrambled.
 
 ## Installation
 ```python
