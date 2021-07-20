@@ -15,7 +15,20 @@ args:
     -t text
     -k top k candidates
 ```
-### To run demo using streamlit
+#### Output
+    Input text: if you can read this you have a strange mind too
+    Scrambled text: fi uoy acn drae hits ouy ehva a eagrnst idmn oot
+
+    Top 1 inferred input texts with log probability scores:
+
+    sentence: if you can read this you have a strange mind too
+    score: -40.09420431405306
+
+#### To run demo using streamlit
 ```python
 PYTHONPATH=. streamlit run streamlit_demo.py
+```
+#### To run tests
+```python
+PYTHONPATH=. poetry run pytest --cov src
 ```
