@@ -24,11 +24,11 @@ args:
     sentence: if you can read this you have a strange mind too
     score: -40.09420431405306
 
-#### To run demo using streamlit
+#### Streamlit
 ```python
 PYTHONPATH=. streamlit run streamlit_demo.py
 ```
-#### To run tests
+#### Tests
 ```python
 PYTHONPATH=. poetry run pytest --cov src
 ```
