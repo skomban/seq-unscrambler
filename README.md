@@ -33,3 +33,5 @@ PYTHONPATH=. streamlit run streamlit_demo.py
 ```python
 PYTHONPATH=. poetry run pytest --cov src
 ```
+#### References
+* Salazar J. et al., 2020, Masked Language Model Scoring. *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 2699–2712July 5 - 10, 2020*
