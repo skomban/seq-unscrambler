@@ -1,3 +1,4 @@
+import click
 import numpy as np
 import torch
 from transformers import AutoModelForMaskedLM, RobertaTokenizer
@@ -53,16 +54,21 @@ class SeqUnscrambler:
         return sorted(log_prob_sent.items(), key=lambda item: item[1], reverse=True)[:top_k]
 
 
-if __name__ == '__main__':
+@click.command()
+@click.option('-t', '--text')
+@click.option('-k', '--top_k', default=1)
+def main(text, top_k):
     unscrambler = SeqUnscrambler()
-    input_text = "if you can read this, you have a strange mind too"
-    print(f"Input text: {input_text}")
+    print(f"Input text: {text}")
 
-    scrambled_text = scramble_words(input_text)
-    print(f"Scrambled text: {scrambled_text}")
+    scrambled_text = scramble_words(text)
+    print(f"Scrambled text: {scrambled_text}\n")
 
-    result = unscrambler.analyze(text=scrambled_text, top_k=3)
-    print(f"Inferred input text: {result[0][0]}")
-    print()
+    result = unscrambler.analyze(text=scrambled_text, top_k=top_k)
+    print(f"Top {top_k} inferred input texts with log probability scores:\n")
     for sentence in result:
         print(f"sentence: {sentence[0]}\nscore: {sentence[1]}\n")
+
+
+if __name__ == '__main__':
+    main()
