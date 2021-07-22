@@ -48,18 +48,16 @@ class SeqUnscramblerDemo:
         )
 
         if (len(input_text.split()) < 15) and (input_text.strip()):
-            if st.button("Unscramble"):
+            if st.button("Scramble and predict"):
                 scrambled_text = st.text_input(
                     label='Scrambled input text',
                     value=scramble_words(input_text),
                 )
-
                 results = model.analyze(scrambled_text, top_k=max_candidates)
-                unscrambled_sentence = results
                 st.markdown(f'#### Output:')
                 st.write('')
 
-                for sentence, score in unscrambled_sentence:
+                for sentence, score in results:
                     st.success(sentence)
                     st.write('\n')
         else:
